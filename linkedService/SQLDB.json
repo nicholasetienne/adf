@@ -1,0 +1,24 @@
+{
+	"name": "SQLDB",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SQL1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "SQL2"
+			},
+			"alwaysEncryptedSettings": {
+				"alwaysEncryptedAkvAuthType": "ManagedIdentity"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SQLDB",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
