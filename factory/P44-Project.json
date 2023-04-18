@@ -1,0 +1,9 @@
+{
+	"name": "P44-Project",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bd142ca0-d446-43d6-b56a-dd50329cd4ec",
+		"tenantId": "b9b0a5b1-f325-4051-a854-961265ee0539"
+	}
+}

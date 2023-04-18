@@ -1,0 +1,7 @@
+{
+	"name": "AzureDataLakeStorage934",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/d03c5e3c-c649-45d3-99ff-1df303d2041e/resourceGroups/API-P44/providers/Microsoft.Storage/storageAccounts/p44storageaccount",
+		"groupId": "dfs"
+	}
+}

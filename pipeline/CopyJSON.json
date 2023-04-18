@@ -1,0 +1,115 @@
+{
+	"name": "CopyJSON",
+	"properties": {
+		"description": "Copy the JSON from API P44",
+		"activities": [
+			{
+				"name": "Copy_6jr",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Destination",
+						"value": "p44shipments//Shipments.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET"
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"maxConcurrentConnections": 2,
+							"blockSizeInMB": 100
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"filePattern": "arrayOfObjects"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "P44ADLS2",
+								"type": "LinkedServiceReference"
+							},
+							"path": "p44shipments"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"path": "$['id']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['shipmentsubscription_status']"
+								},
+								"sink": {
+									"path": "$['shipmentsubscription_status']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['status_verbose']"
+								},
+								"sink": {
+									"path": "$['status_verbose']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['container_type_str']"
+								},
+								"sink": {
+									"path": "$['container_type_str']"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_6jr",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_6jr",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-02-06T17:34:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

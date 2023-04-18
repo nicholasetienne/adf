@@ -1,0 +1,13 @@
+{
+	"name": "SourceDataset_6jr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "P44RestService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
