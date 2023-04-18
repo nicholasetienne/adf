@@ -1,0 +1,10 @@
+{
+	"name": "SQLDB1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://NichoVault.vault.azure.net/"
+		}
+	}
+}
