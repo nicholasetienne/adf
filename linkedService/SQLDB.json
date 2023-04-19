@@ -1,20 +1,12 @@
 {
 	"name": "SQLDB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": {
-				"type": "AzureKeyVaultSecret",
-				"store": {
-					"referenceName": "SQL1",
-					"type": "LinkedServiceReference"
-				},
-				"secretName": "SQL2"
-			},
-			"alwaysEncryptedSettings": {
-				"alwaysEncryptedAkvAuthType": "ManagedIdentity"
-			}
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=nicholas77.database.windows.net;initial catalog=PocPBI;user id=nicholas",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQERBQTI3NjE5LUZERDYtNDJCRS1BNTJELUMzRDZFMTZGQjZBQ19hZjgyOWU4ZC05MDcxLTQzYjEtYmQyMC05NzhlYTM4ZTE4YTIiDQp9"
 		},
 		"connectVia": {
 			"referenceName": "SQLDB",
