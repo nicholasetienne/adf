@@ -644,7 +644,14 @@
 						"interval": 1,
 						"startTime": "2023-04-19T19:56:00",
 						"timeZone": "Romance Standard Time",
-						"schedule": {}
+						"schedule": {
+							"minutes": [
+								59
+							],
+							"hours": [
+								18
+							]
+						}
 					}
 				}
 			},
