@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "PocTlB",
+				"fileName": {
+					"value": "@concat(pipeline().Pipeline,'.parquet')",
+					"type": "Expression"
+				},
 				"folderPath": "P44ParquetFiles",
 				"fileSystem": "p44shipments"
 			},
