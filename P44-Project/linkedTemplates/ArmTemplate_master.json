@@ -1,0 +1,98 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "P44-Project"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"P44ADLS2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'P44ADLS2'"
+		},
+		"KeySecret_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://vaultnicho.vault.azure.net/"
+		},
+		"P44ADLS2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://p44storageaccount.dfs.core.windows.net/"
+		},
+		"P44RestService_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://capi.ocean-insights.com/containertracking/v2/shipments/"
+		},
+		"SQLDB_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "AccessDB"
+		},
+		"AzureDataLakeStorage934_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/d03c5e3c-c649-45d3-99ff-1df303d2041e/resourceGroups/API-P44/providers/Microsoft.Storage/storageAccounts/p44storageaccount"
+		},
+		"AzureDataLakeStorage934_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "P44-Project_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"P44ADLS2_accountKey": {
+						"value": "[parameters('P44ADLS2_accountKey')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"KeySecret_properties_typeProperties_baseUrl": {
+						"value": "[parameters('KeySecret_properties_typeProperties_baseUrl')]"
+					},
+					"P44ADLS2_properties_typeProperties_url": {
+						"value": "[parameters('P44ADLS2_properties_typeProperties_url')]"
+					},
+					"P44RestService_properties_typeProperties_url": {
+						"value": "[parameters('P44RestService_properties_typeProperties_url')]"
+					},
+					"SQLDB_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('SQLDB_properties_typeProperties_connectionString_secretName')]"
+					},
+					"AzureDataLakeStorage934_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureDataLakeStorage934_properties_privateLinkResourceId')]"
+					},
+					"AzureDataLakeStorage934_properties_groupId": {
+						"value": "[parameters('AzureDataLakeStorage934_properties_groupId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

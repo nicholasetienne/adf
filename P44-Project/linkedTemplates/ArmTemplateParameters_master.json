@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "P44-Project"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"P44ADLS2_accountKey": {
+			"value": ""
+		},
+		"KeySecret_properties_typeProperties_baseUrl": {
+			"value": "https://vaultnicho.vault.azure.net/"
+		},
+		"P44ADLS2_properties_typeProperties_url": {
+			"value": "https://p44storageaccount.dfs.core.windows.net/"
+		},
+		"P44RestService_properties_typeProperties_url": {
+			"value": "https://capi.ocean-insights.com/containertracking/v2/shipments/"
+		},
+		"SQLDB_properties_typeProperties_connectionString_secretName": {
+			"value": "AccessDB"
+		},
+		"AzureDataLakeStorage934_properties_privateLinkResourceId": {
+			"value": "/subscriptions/d03c5e3c-c649-45d3-99ff-1df303d2041e/resourceGroups/API-P44/providers/Microsoft.Storage/storageAccounts/p44storageaccount"
+		},
+		"AzureDataLakeStorage934_properties_groupId": {
+			"value": "dfs"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
