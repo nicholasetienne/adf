@@ -90,6 +90,58 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Valide",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Extract Table",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "OK",
+							"value": {
+								"type": "Int",
+								"content": 1
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
+			},
+			{
+				"name": "NoValide",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Extract Table",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "OK",
+							"value": {
+								"type": "Int",
+								"content": 0
+							}
+						}
+					],
+					"setSystemVariable": true
+				}
 			}
 		],
 		"annotations": [],
