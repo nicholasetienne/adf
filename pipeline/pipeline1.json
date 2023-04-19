@@ -16,15 +16,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "ParquetSink",
@@ -41,7 +35,8 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['id']"
+									"name": "IdItem",
+									"precision": 19
 								},
 								"sink": {
 									"name": "id",
@@ -50,7 +45,7 @@
 							},
 							{
 								"source": {
-									"path": "$['shipmentsubscription_status']"
+									"name": "ItemName"
 								},
 								"sink": {
 									"name": "shipmentsubscription_status",
@@ -59,7 +54,7 @@
 							},
 							{
 								"source": {
-									"path": "$['status_verbose']"
+									"name": "ItemDescribe"
 								},
 								"sink": {
 									"name": "status_verbose",
@@ -68,19 +63,24 @@
 							},
 							{
 								"source": {
-									"path": "$['container_type_str']"
+									"name": "ItemURL"
 								},
 								"sink": {
 									"name": "container_type_str",
 									"type": "String"
 								}
 							}
-						]
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DestinationDataset_6jr",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				],

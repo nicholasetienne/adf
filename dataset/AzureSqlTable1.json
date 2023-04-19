@@ -1,0 +1,38 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "IdItem",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "ItemName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ItemDescribe",
+				"type": "text"
+			},
+			{
+				"name": "ItemDateAdded",
+				"type": "date"
+			},
+			{
+				"name": "ItemURL",
+				"type": "text"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Poctbl"
+		}
+	}
+}
