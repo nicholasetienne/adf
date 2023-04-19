@@ -577,8 +577,9 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2023-04-19T19:54:00",
-						"timeZone": "Romance Standard Time"
+						"startTime": "2023-04-19T19:56:00",
+						"timeZone": "Romance Standard Time",
+						"schedule": {}
 					}
 				}
 			},
