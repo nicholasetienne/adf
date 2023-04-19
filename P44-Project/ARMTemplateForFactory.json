@@ -577,14 +577,14 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2023-04-19T19:56:00",
+						"startTime": "2023-04-19T18:56:00",
 						"timeZone": "Romance Standard Time",
 						"schedule": {
 							"minutes": [
-								59
+								51
 							],
 							"hours": [
-								18
+								19
 							]
 						}
 					}
