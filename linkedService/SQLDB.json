@@ -12,6 +12,9 @@
 					"type": "LinkedServiceReference"
 				},
 				"secretName": "DB"
+			},
+			"alwaysEncryptedSettings": {
+				"alwaysEncryptedAkvAuthType": "ManagedIdentity"
 			}
 		},
 		"connectVia": {
