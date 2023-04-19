@@ -4,17 +4,13 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=nicholas77.database.windows.net;Initial Catalog=PocPBI;User ID=nicholas",
-			"password": {
+			"connectionString": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
 					"referenceName": "KeySecret",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "DB"
-			},
-			"alwaysEncryptedSettings": {
-				"alwaysEncryptedAkvAuthType": "ManagedIdentity"
+				"secretName": "AccessDB"
 			}
 		},
 		"connectVia": {
